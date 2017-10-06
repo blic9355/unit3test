@@ -9,16 +9,17 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var ratingLabel: UILabel!
+    @IBOutlet var posterView: UIImageView!
+    @IBOutlet weak var summarLabel: UITextView!
+    
+    func updateViews(withMovie movie: Movie) {
+        self.titleLabel.text = movie.title
+        self.ratingLabel.text = "Rating: \(movie.rating)/10"
+        self.summarLabel.text = "Summary: \(movie.summary)"
+        self.posterView.image = movie.image
     }
 
 }
